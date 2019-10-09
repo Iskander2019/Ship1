@@ -1,0 +1,24 @@
+.imgDat {
+    width: 150px;
+}
+.singleSensor {
+    border: 3px solid cyan;
+    float: left;
+    margin-right: 15px;
+    padding: 10px;
+    text-align: center;    
+}
+.singleSensor button {
+    color: bisque;
+    background-color: blue;
+}
+.singleSensor button:hover {
+   background-color: coral; 
+}
+.singleSensor button:active{
+    background-color: rgb(80, 255, 240); 
+ }
+img {
+    width: 150px;
+}
+
