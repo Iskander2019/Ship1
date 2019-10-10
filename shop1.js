@@ -37,7 +37,7 @@ function loadSensors(){
 }
 
 function createAddWindow () {
-    win=open("", "displayWindow", "width=500,height=450,status=no,menubar=no");
+    win=open("", "displayWindow", "width=700,height=450,status=no,menubar=no");
         	
         win.document.open();
 		win.document.write("<html><head><title>WIN</title>");
@@ -52,26 +52,31 @@ function createAddWindow () {
         win.document.write("basket=localStorage.getItem('bag');"); 
         win.document.write("var cart=JSON.parse(basket);");
         win.document.write("$.getJSON('goods.json', function(data){");	
-        win.document.write("var sensors=data;");                // Все датчики в массиве
+        win.document.write("var sensors=data;");                // Все датчики в файле JSON
         win.document.write("var out='';");
         win.document.write("for(var key in cart) {");
-        win.document.write("out+='<p>'+sensors[key].name;");
-        win.document.write("out+='<img src='+sensors[key].img+'>';");
-        win.document.write("out+='--'+sensors[key].P;");
-        win.document.write("out+='=='+cart[key]+'</p>';");
+        win.document.write("out+='<p>'+sensors[key].name;");                // Имя датчика
+        win.document.write("out+='<img src='+sensors[key].img+'>';");       // фото датчика    
+        win.document.write("out+='--'+sensors[key].P;");                    // мощность
+        win.document.write("out+='=='+cart[key]+'</p>';");                  // кол-во
         win.document.write("out+='<br><hr>';");
         win.document.write("$('#out1').html(out);");	
         win.document.write("}"+"});");	
-   //     win.document.write("});");	
-       
-  //      win.document.write("$('#out1').html(basket);");	
-       
+ //      win.document.write("$('#out1').html(basket);");	
         win.document.write("$('#out2').html(basket);");		
         win.document.write("function showBasket(){;"); 
         win.document.write("};");	 
         win.document.write("</script>");
-        	
 		win.document.write("</body></html>");
-        
 }
+
+
+
+function clearBox(event){
+    localStorage.setItem("bag", "");
+    createAddWindow();
+}
+
+
+
 //       win.document.write("document.getElementById('ss1').innerHTML=cab");
